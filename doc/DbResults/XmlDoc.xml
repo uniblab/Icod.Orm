@@ -91,7 +91,7 @@
 				and will <see cref="F:System.Reflection.BindingFlags.IgnoreCase"/>.
 			</Remarks>
 		</member>
-		<member name="GetProperty(System.Type)">
+		<member name="TryGetProperty(System.Type,System.Reflection.PropertyInfo@)">
 			<Summary>
 				Retrieves the <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> described by this instance with reference to the provided <see cref="T:System.Type"/>.
 			</Summary>
