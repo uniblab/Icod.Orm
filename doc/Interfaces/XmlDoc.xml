@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+    Icod.Orm is the lght-weight and super-efficient ORM by Icod.
+    Copyright (C) 2025  Timothy J. Bruce
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 3 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+    USA
+-->
+<types>
+	<type name="Icod.Orm.DbMap.INamedConfigurationElement">
+		<member name="">
+			<Summary>This is a decorator interface exposing a Name property for configuration elements.</Summary>
+		</member>
+		<member name="Name">
+			<Summary>
+				Gets or sets the name of this element.
+			</Summary>
+			<Returns>
+				The name of the element as a <see cref="T:System.String"/>.
+				In most circumstances this value is used as a dictionary key.
+			</Returns>
+		</member>
+	</type>
+
+	<type name="Icod.Orm.DbMap.IColumnName">
+		<member name="">
+			<Summary>This is a decorator interface exposing a ColumnName property.</Summary>
+		</member>
+		<member name="ColumnName">
+			<Summary>
+				Gets or sets the name of the column with which to be associated.
+			</Summary>
+			<Returns>
+				The name of the column as a <see cref="T:System.String"/>.
+			</Returns>
+		</member>
+	</type>
+
+	<type name="Icod.Orm.DbMap.IDbColumn">
+		<member name="">
+			<Summary>This interface defines the useful properties of database column.</Summary>
+		</member>
+		<member name="Name">
+			<Summary>
+				Gets or sets the name of this column.
+			</Summary>
+			<Returns>
+				The name of the column as a <see cref="T:System.String"/>.
+				In most circumstances this value must be unique.
+			</Returns>
+		</member>
+		<member name="SqlDbType">
+			<Summary>
+				Gets or sets the data type of the column in terms of <see cref="T:System.Data.SqlDbType"/>.
+				The default value is <see cref="F:System.Data.SqlDbType.Variant"/>.
+			</Summary>
+		</member>
+		<member name="DbType">
+			<Summary>
+				Gets or sets the data type of the column in terms of <see cref="T:System.Data.DbType"/>.
+				The default value is <see cref="F:System.Data.DbType.Object"/>.
+			</Summary>
+		</member>
+		<member name="TypeCode">
+			<Summary>
+				Gets or sets the data type of the column in terms of <see cref="T:System.TypeCode"/>.
+				The default value is <see cref="F:System.TypeCode.Object"/>.
+			</Summary>
+		</member>
+		<member name="OleDbType">
+			<Summary>
+				Gets or sets the data type of the column in terms of <see cref="T:System.Data.OleDb.OleDbType"/>.
+				The default value is <see cref="F:System.Data.OleDb.OleDbType.Variant"/>.
+			</Summary>
+		</member>
+		<member name="OdbcType">
+			<Summary>
+				Gets or sets the data type of the column in terms of <see cref="T:.Data.Odbc.OdbcType"/>.
+				The default value is <c>0</c>.
+			</Summary>
+		</member>
+		<member name="ConvertTo">
+			<Summary>
+				Gets or sets how the database value should be converted to the object model in terms of <see cref="T:System.TypeCode"/>.
+				The default value is <see cref="F:System.TypeCode.Object"/>.
+			</Summary>
+		</member>
+		<member name="IsNullable">
+			<Summary>
+				Indicates if the value can be null.
+				The default value is <see langword="false"/>
+			</Summary>
+		</member>
+		<member name="Skip">
+			<Summary>
+				Indicates if this column value must be skipped.
+				The default value is <see langword="false"/>
+			</Summary>
+		</member>
+		<member name="IsRequired">
+			<Summary>
+				Indicates if the specified column must be present.
+				The default value is <see langword="false"/>
+			</Summary>
+		</member>
+		<member name="GetValue(System.Data.IDataReader)">
+			<Summary>
+				Retrieves the value from the specified column, returning it converted to the specified type.
+			</Summary>
+			<param name="reader">
+				The <see cref="T:System.Data.IDataReader">IDataReader</see> from which to read the value of the specified column.
+			</param>
+			<Returns>
+				The value, converted to the type specified by the <see cref="P:Icod.Orm.DbMap.IDbColumn.ConvertTo"/> property.
+			</Returns>
+			<Remarks>
+				The logic for reading the value from the database and returning the value is a straight-forward chain despite the fact that several different modes are supported.
+				The user can specify to retrieve values as SqlDbTypes or OdbcTypes and so on.
+				Not more than one of SqlDbType, DbType, TypeCode, OleDbType, OdbcType values should be specified; and specifying one is completely optional.
+				This is because these values may invoke provider-specific methods on the underlying IDataReader.
+				After reading the value from the database, the value is converted via the System.Convert class to the specified type.
+			</Remarks>
+		</member>
+		<member name="GetValue(System.Data.IDataReader,System.Int32)">
+			<Summary>
+				Retrieves the value from the specified column, returning it converted to the specified type.
+			</Summary>
+			<param name="reader">
+				The <see cref="T:System.Data.IDataReader">IDataReader</see> from which to read the value of the specified column.
+			</param>
+			<param name="ordinal">
+				The <see cref="T:System.Int32" /> specifying the column by ordinal.
+			</param>
+			<Returns>
+				The value, converted to the type specified by the <see cref="P:Icod.Orm.DbMap.IDbColumn.ConvertTo"/> property.
+			</Returns>
+			<Remarks>
+				The logic for reading the value from the database and returning the value is a straight-forward chain despite the fact that several different modes are supported.
+				The user can specify to retrieve values as SqlDbTypes or OdbcTypes and so on.
+				Not more than one of SqlDbType, DbType, TypeCode, OleDbType, OdbcType values should be specified; and specifying one is completely optional.
+				This is because these values may invoke provider-specific methods on the underlying IDataReader.
+				After reading the value from the database, the value is converted via the System.Convert class to the specified type.
+			</Remarks>
+		</member>
+	</type>
+</types>
