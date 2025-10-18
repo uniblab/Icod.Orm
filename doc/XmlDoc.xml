@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+    Icod.Orm is the lght-weight and super-efficient ORM by Icod.
+    Copyright (C) 2025  Timothy J. Bruce
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 3 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+    USA
+-->
+<types>
+	<type name="Icod.Orm.ConfigurationElementCollectionBase`1">
+		<member name="">
+			<summary>
+				Represents a configuration element containing a collection of child elements of type <typeparamref name="T"/>.
+			</summary>
+			<typeparam name="T">
+				The type of <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> the collection holds.
+			</typeparam>
+		</member>
+		<member name=".#ctor">
+			<summary>
+				Initializes a new instance of the class.
+			</summary>
+        </member>
+		<member name=".#ctor(System.Collections.IComparer)">
+			<summary>
+				Initializes a new instance of the class.
+			</summary>
+			<param name="comparer">
+				The <see cref="T:System.Collections.IComparer">IComparer</see> to use.
+			</param>
+			<remarks>
+				The <see cref="T:System.Collections.IComparer">IComparer</see> is used 
+				to set a comparer to use. 
+				For example, you can use a case-insensitive comparer to make the key case insensitive.
+			</remarks>
+		</member>
+		<member name="IndexOf(`0)">
+			<summary>
+				Indicates the index of the specified <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see>.
+			</summary>
+			<param name="element">
+				The <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> for the specified index location.
+			</param>
+			<returns>
+				The index of the specified <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> as a <see cref="T:System.Int32"/>; otherwise, -1.
+			</returns>
+		</member>
+		<member name="CreateNewElement()">
+			<summary>
+				Removes all configuration element objects from the collection.
+			</summary>
+			<remarks>
+				When the Clear method is called, it removes all <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> objects from the collection.
+				It also inserts a clear directive into the configuration file.
+			</remarks>
+		</member>
+		<member name="Add(`0)">
+			<summary>
+				Adds a <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> to the collection.
+			</summary>
+			<param name="element">
+				The <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> to add.
+			</param>
+		</member>
+		<member name="RemoveAt(System.Int32)">
+			<summary>
+				Removes the <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> from the collection at the specified <paramref name="index"/>.
+			</summary>
+			<param name="index">
+				The index location of the <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> to remove.
+			</param>
+			<remarks>
+				The BaseRemoveAt method inserts a &lt;remove&gt; directive into the configuration file for the element at the specified index location.
+			</remarks>
+		</member>
+		<member name="Clear()">
+			<summary>
+				Removes all <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> objects from the collection.
+			</summary>
+			<remarks>
+				When the BaseClear method is called, it removes all <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> objects from the collection. 
+				It also inserts a &lt;clear&gt; directive into the configuration file.
+			</remarks>
+		</member>
+	</type>
+</types>

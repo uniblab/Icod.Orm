@@ -21,47 +21,47 @@
 <types>
 	<type name="Icod.Orm.DbMap.DbColumnElement">
 		<member name="">
-			<Summary>
+			<summary>
                 The DbColumnElement describes a column in a database resultset.
                 This structure retrieves the value from the resultset and, if necessary, converts it to another type.
-            </Summary>
+            </summary>
         </member>
 		<member name=".#ctor">
-			<Summary>
+			<summary>
 				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbColumnElement"/> class.
-			</Summary>
+			</summary>
 		</member>
 		<member name=".#ctor(System.String)">
-			<Summary>
+			<summary>
 				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbColumnElement"/> class.
-			</Summary>
+			</summary>
 			<param name="name">
                 Sets the <see cref="P:Icod.Orm.DbMap.DbColumnElement.Name">Name</see> property at time of instantiation.
             </param>
-			<Remarks>
+			<remarks>
 				The <see cref="P:Icod.Orm.DbMap.DbColumnElement.Name">Name</see> property should be unique in most contexts.
-			</Remarks>
+			</remarks>
 		</member>
 		<member name="PropertyName">
-			<Summary>
+			<summary>
 				Gets or sets the name of the property with which this database value should be associated.
-			</Summary>
+			</summary>
 		</member>
 		<member name="GetOrdinal(System.Data.Common.DbDataReader)">
-			<Summary>
+			<summary>
 				Gets the ordinal index for the associated column in the provided data reader.
-			</Summary>
+			</summary>
 			<param name="reader">
 				The data reader within which to identify the ordinal of the column this instance describes.
 			</param>
-			<Returns>
+			<returns>
 				The ordinal as a <see cref="T:System.Int32"/> of the column this instance references within the provided <paramref name="reader"/>; or -1 if the described column in not found.
-			</Returns>
+			</returns>
 		</member>
 		<member name="TryGetOrdinal(System.Data.Common.DbDataReader,System.Int32@)">
-			<Summary>
+			<summary>
 				Gets the ordinal index for the associated column in the provided data reader.
-			</Summary>
+			</summary>
 			<param name="reader">
 				The data reader within which to identify the ordinal of the column this instance describes.
 			</param>
@@ -69,53 +69,53 @@
 				The original of the column described by this instance within the provided <paramref name="reader"/>;
 				or -1 of the column is not found.
 			</param>
-			<Returns>
+			<returns>
 				<see langword="true"/> if the ordinal is found; otherwise <see langword="false"/>.
-			</Returns>
+			</returns>
 		</member>
 		<member name="GetProperty(System.Type)">
-			<Summary>
+			<summary>
 				Returns the <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> described by this instance with reference to the provided <see cref="T:System.Type"/>.
-			</Summary>
+			</summary>
 			<param name="type">
 				The <see cref="T:System.Type"/> to interrogate.
 			</param>
-			<Returns>
+			<returns>
 				The <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> described by this instance with reference to the provided <see cref="T:System.Type"/>.
-			</Returns>
-			<Remarks>
+			</returns>
+			<remarks>
 				This will only interrogate the provided <paramref name="type"/> for thos properties which are
 				<see cref="F:System.Reflection.BindingFlags.Public"/>,
 				<see cref="F:System.Reflection.BindingFlags.Instance"/>,
 				<see cref="F:System.Reflection.BindingFlags.SetProperty"/>,
 				and will <see cref="F:System.Reflection.BindingFlags.IgnoreCase"/>.
-			</Remarks>
+			</remarks>
 		</member>
 		<member name="TryGetProperty(System.Type,System.Reflection.PropertyInfo@)">
-			<Summary>
+			<summary>
 				Retrieves the <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> described by this instance with reference to the provided <see cref="T:System.Type"/>.
-			</Summary>
+			</summary>
 			<param name="type">
 				The <see cref="T:System.Type"/> to interrogate.
 			</param>
 			<param name="property">
 				The <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> described by this instance with respect to the provided <paramref name="type" />.
 			</param>
-			<Returns>
+			<returns>
 				<see langword="true"/> if the <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> is found; otherwise <see langword="false"/>.
-			</Returns>
-			<Remarks>
+			</returns>
+			<remarks>
 				This will only interrogate the provided <paramref name="type"/> for those properties which are
 				<see cref="F:System.Reflection.BindingFlags.Public"/>,
 				<see cref="F:System.Reflection.BindingFlags.Instance"/>,
 				<see cref="F:System.Reflection.BindingFlags.SetProperty"/>,
 				and will <see cref="F:System.Reflection.BindingFlags.IgnoreCase"/>.
-			</Remarks>
+			</remarks>
 		</member>
 		<member name="SetPropertyValue(System.Data.Common.DbDataReader,System.Int32,System.Reflection.PropertyInfo,System.Object)">
-			<Summary>
+			<summary>
 				Reads the associated value from the database, converts it if necessary, and then sets the associated proeprty of the provided <paramref name="object" />.
-			</Summary>
+			</summary>
 			<param name="reader">
 				The <see cref="T:System.Data.IDataReader"/> connected to the data result of interest.
 			</param>
@@ -128,11 +128,128 @@
 			<param name="object">
 				The instance to receive the data value.
 			</param>
-			<Remarks>
+			<remarks>
 				This system uses optimized, cached reflection information to qickly and efficiently read the value from the database, convert it if necessary, and set a specific property value on the supplied object instance.
 				In this way data is rapidly transposed from the relational model to the object model.
 				It is suited for POCO instances as well as instances with complex business rules encoding in the proeprties.
-			</Remarks>
+			</remarks>
+		</member>
+	</type>
+	<type name="Icod.Orm.DbMap.DbColumnCollection">
+		<member name="">
+			<summary>
+				A collection of <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see> instances.
+			</summary>
+		</member>
+		<member name="GetOrdinals(System.Data.Common.DbDataReader)">
+			<summary>
+				Gets the ordinal indexes for the associated columns in the provided data reader.
+			</summary>
+			<param name="reader">
+				The data reader within which to identify the ordinals of the columns this instance contains.
+			</param>
+			<returns>
+				An <see cref="T:System.Collections.Generic.IDictionary{TKey,TValue}">IDictionary</see> 
+				of types <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see> 
+				and <see cref="T:System.Int32">Int32</see>.
+			</returns>
+		</member>
+		<member name="TryGetOrdinals(TryGetOrdinals(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2@)">
+			<summary>
+				Gets the ordinal index for the associated column in the provided data reader.
+			</summary>
+			<param name="reader">
+				The data reader within which to identify the ordinals of the columns this instance contains.
+			</param>
+			<param name="ordinals">
+				An <see cref="T:System.Collections.Generic.IDictionary{TKey,TValue}">IDictionary</see>
+				of types <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see>
+				and <see cref="T:System.Int32">Int32</see>.
+				When this method returns, contains the result of successfully retrieving the ordinals of the associated
+				database columns described by this collection; or an undefined value on failure.
+			</param>
+			<returns>
+				<see langword="true"/> if the ordinals are found; otherwise <see langword="false"/>.
+			</returns>
+		</member>
+		<member name="GetProperties(System.Type)">
+			<summary>
+				Gets the <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> described by this instance with reference to the provided <see cref="T:System.Type"/>.
+			</summary>
+			<param name="type">
+				The <see cref="T:System.Type"/> to interrogate.
+			</param>
+			<returns>
+				An <see cref="T:System.Collections.Generic.IDictionary{TKey,TValue}">IDictionary</see>
+				of types <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see>
+				and <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see>.
+			</returns>
+			<remarks>
+				This will only interrogate the provided <paramref name="type"/> for thos properties which are
+				<see cref="F:System.Reflection.BindingFlags.Public"/>,
+				<see cref="F:System.Reflection.BindingFlags.Instance"/>,
+				<see cref="F:System.Reflection.BindingFlags.SetProperty"/>,
+				and will <see cref="F:System.Reflection.BindingFlags.IgnoreCase"/>.
+			</remarks>
+		</member>
+		<member name="TryGetProperties(System.Type,TryGetOrdinals(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2@)">
+			<summary>
+				Gets the <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> described by this instance with reference to the provided <see cref="T:System.Type"/>.
+			</summary>
+			<param name="type">
+				The <see cref="T:System.Type"/> to interrogate.
+			</param>
+			<param name="properties">
+				An <see cref="T:System.Collections.Generic.IDictionary{TKey,TValue}">IDictionary</see>
+				of types <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see>
+				and <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see>.
+				When this method returns, contains the result of successfully retrieving the PropertyInfo values of the associated
+				database columns described by this collection; or an undefined value on failure.
+			</param>
+			<returns>
+				<see langword="true"/> if the <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> instances are found; otherwise <see langword="false"/>.
+			</returns>
+			<remarks>
+				This will only interrogate the provided <paramref name="type"/> for those properties which are
+				<see cref="F:System.Reflection.BindingFlags.Public"/>,
+				<see cref="F:System.Reflection.BindingFlags.Instance"/>,
+				<see cref="F:System.Reflection.BindingFlags.SetProperty"/>,
+				and will <see cref="F:System.Reflection.BindingFlags.IgnoreCase"/>.
+			</remarks>
+		</member>
+		<member name="SetPropertyValues(System.Data.Common.DbDataReader,System.Object)">
+			<summary>
+				Sets the properties of <paramref name="object"/> based on the values of the current row in the <paramref name="reader"/>.
+			</summary>
+			<param name="reader">
+				The <see cref="T:System.Data.Common.DbDataReader">DbDataReader</see> reporting the values for the <paramref name="object"/>.
+			</param>
+			<param name="object">
+				The instance to receive the values from the <paramref name="reader"/>.
+			</param>
+			<remarks>
+				This function evalutes and resolves the database column ordinals and object property information on each invocation.
+				For cached references, use <see cref="M:Icod.Orm.DbMap.DbColumnCollection.SetPropertyValues(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2,System.Collections.Generic.IDictionary`2,System.Object)"/>
+			</remarks>
+			<seealso cref="M:Icod.Orm.DbMap.DbColumnCollection.SetPropertyValues(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2,System.Collections.Generic.IDictionary`2,System.Object)"/>
+		</member>
+		<member name="SetPropertyValues(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2,System.Collections.Generic.IDictionary`2,System.Object)">
+			<summary>
+				Sets the properties of <paramref name="object"/> based on the values of the current row in the <paramref name="reader"/>.
+			</summary>
+			<param name="reader">
+				The <see cref="T:System.Data.Common.DbDataReader">DbDataReader</see> reporting the values for the <paramref name="object"/>.
+			</param>
+			<param name="ordinals">
+				The pre-mapped ordinal indexes of the values.
+			</param>
+			<param name="properties">
+				The pre-mapped properties to receive the values.
+			</param>
+			<param name="object">
+				The instance to receive the values from the <paramref name="reader"/>.
+			</param>
+			<seealso cref="M:Icod.Orm.DbMap.DbColumnCollection.SetPropertyValues(System.Data.Common.DbDataReader,System.Object)"/>
 		</member>
 	</type>
 </types>
