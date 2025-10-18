@@ -95,4 +95,57 @@
 			</remarks>
 		</member>
 	</type>
+	<type name="Icod.Orm.NamedConfigurationElementCollectionBase`1">
+		<member name="">
+			<summary>
+				Represents a configuration element containing a collection of child elements of type <typeparamref name="T"/>.
+			</summary>
+		</member>
+		<member name="CollectionType">
+			<summary>
+				Gets the type of the <see cref="T:System.Configuration.ConfigurationElementCollectionType">ConfigurationElementCollectionType</see>.
+			</summary>
+			<value>
+				The <see cref="T:System.Configuration.ConfigurationElementCollectionType">ConfigurationElementCollectionType</see> of this collection.
+			</value>
+		</member>
+		<member name="this[System.Int32]">
+			<summary>
+				Gets or sets the configuration element at the specified <paramref name="index"/>.
+			</summary>
+			<param name="index">
+				The ordinal index of the element.
+			</param>
+			<value>
+				The configuration element associated with the specified <paramref name="index"/>.
+			</value>
+		</member>
+		<member name="this[System.String]">
+			<summary>
+				Gets or sets the configuration element referenced by the specified <paramref name="name"/>.
+			</summary>
+			<param name="name">
+				The name of the element.
+			</param>
+			<value>
+				The configuration element associated with the specified <paramref name="name"/>.
+			</value>
+		</member>
+		<member name="Remove(`0)">
+			<summary>
+				Removes a System.Configuration.ConfigurationElement from the collection.
+			</summary>
+			<param name="element">
+				The element to remove.
+			</param>
+		</member>
+		<member name="Remove(System.String)">
+			<summary>
+				Removes a System.Configuration.ConfigurationElement from the collection.
+			</summary>
+			<param name="key">
+				The name of the element to remove.
+			</param>
+		</member>
+	</type>
 </types>
