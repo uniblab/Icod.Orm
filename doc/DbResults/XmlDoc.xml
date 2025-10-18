@@ -252,4 +252,198 @@
 			<seealso cref="M:Icod.Orm.DbMap.DbColumnCollection.SetPropertyValues(System.Data.Common.DbDataReader,System.Object)"/>
 		</member>
 	</type>
+	<type name="Icod.Orm.DbMap.DbResultElement">
+		<member name="">
+			<summary>
+				The DbResultElement describes a resultset returned by a database query.
+			</summary>
+		</member>
+		<member name=".#ctor">
+			<summary>
+				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbResultElement"/> class.
+			</summary>
+		</member>
+		<member name=".#ctor(System.String)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbResultElement"/> class.
+			</summary>
+			<param name="name">
+				Sets the <see cref="P:Icod.Orm.DbMap.DbResultElement.Name">Name</see> property at time of instantiation.
+			</param>
+			<remarks>
+				The <see cref="P:Icod.Orm.DbMap.DbResultElement.Name">Name</see> property should be unique in most contexts.
+			</remarks>
+		</member>
+		<member name="Columns">
+			<summary>
+				The <see cref="T:Icod.Orm.DbMap.DbColumnCollection">DbColumnCollection</see> which stores the
+				<see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see> elements describing this result set.
+			</summary>
+		</member>
+		<member name="GetResult{R}(System.Data.Common.DbDataReader,{R})">
+			<summary>
+				Translates a row from the specified <paramref name="reader"/> to a proper object instance.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<param name="object">
+				The instance to receive the values from the <paramref name="reader"/>.
+			</param>
+			<returns>
+				An instance of type <typeparamref name="R"/>, with properties set to vlaues from the current row of the <paramref name="reader"/>.
+			</returns>
+		</member>
+		<member name="GetResult{R}(System.Data.Common.DbDataReader,System.Func{R})">
+			<summary>
+				Translates a row from the specified <paramref name="reader"/> to a proper object instance.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<param name="activator">
+				The function which instantiates an object instance for which to set values from the database result.
+			</param>
+			<returns>
+				An instance of type <typeparamref name="R"/>, with properties set to vlaues from the current row of the <paramref name="reader"/>.
+			</returns>
+		</member>
+		<member name="GetResult{R}(System.Data.Common.DbDataReader)">
+			<summary>
+				Translates a row from the specified <paramref name="reader"/> to a proper object instance.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<returns>
+				An instance of type <typeparamref name="R"/>, with properties set to vlaues from the current row of the <paramref name="reader"/>.
+			</returns>
+		</member>
+		<member name="GetResult{R}(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2,System.Collections.Generic.IDictionary`2,{R})">
+			<summary>
+				Translates a row from the specified <paramref name="reader"/> to a proper object instance.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<param name="ordinals">
+				The pre-mapped ordinal indexes of the values.
+			</param>
+			<param name="properties">
+				The pre-mapped properties to receive the values.
+			</param>
+			<param name="object">
+				The instance to receive the values from the <paramref name="reader"/>.
+			</param>
+			<returns>
+				An instance of type <typeparamref name="R"/>, with properties set to vlaues from the current row of the <paramref name="reader"/>.
+			</returns>
+		</member>
+		<member name="GetResult{R}(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2,System.Collections.Generic.IDictionary`2)">
+			<summary>
+				Translates a row from the specified <paramref name="reader"/> to a proper object instance.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<param name="ordinals">
+				The pre-mapped ordinal indexes of the values.
+			</param>
+			<param name="properties">
+				The pre-mapped properties to receive the values.
+			</param>
+			<returns>
+				An instance of type <typeparamref name="R"/>, with properties set to vlaues from the current row of the <paramref name="reader"/>.
+			</returns>
+		</member>
+		<menber name="GetResults{R}(System.Data.Common.DbDataReader,System.Func{R})">
+			<summary>
+				Translates a database result set into an <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type <typeref name="R"/>.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<param name="activator">
+				The function which instantiates an object instance for which to set values from the database result.
+			</param>
+			<returns>
+				An <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type <typeref name="R"/>.
+			</returns>
+		</menber>
+		<menber name="GetResults{R}(System.Data.Common.DbDataReader">
+			<summary>
+				Translates a database result set into an <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type <typeref name="R"/>.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<returns>
+				An <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type <typeref name="R"/>.
+			</returns>
+		</menber>
+		<menber name="GetResults{R}(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2,System.Collections.Generic.IDictionary`2,System.Func{R})">
+			<summary>
+				Translates a database result set into an <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type <typeref name="R"/>.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<param name="ordinals">
+				The pre-mapped ordinal indexes of the values.
+			</param>
+			<param name="properties">
+				The pre-mapped properties to receive the values.
+			</param>
+			<param name="activator">
+				The function which instantiates an object instance for which to set values from the database result.
+			</param>
+			<returns>
+				An <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type <typeref name="R"/>.
+			</returns>
+		</menber>
+		<menber name="GetResults{R}(System.Data.Common.DbDataReader,System.Collections.Generic.IDictionary`2,System.Collections.Generic.IDictionary`2)">
+			<summary>
+				Translates a database result set into an <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type <typeref name="R"/>.
+			</summary>
+			<typeparam name="R">
+				The type of object to return.
+			</typeparam>
+			<param name="reader">
+				The data reader from which to retrieve values for the desired object instance.
+			</param>
+			<param name="ordinals">
+				The pre-mapped ordinal indexes of the values.
+			</param>
+			<param name="properties">
+				The pre-mapped properties to receive the values.
+			</param>
+			<returns>
+				An <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type <typeref name="R"/>.
+			</returns>
+		</menber>
+	</type>
 </types>
