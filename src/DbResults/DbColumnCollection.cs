@@ -26,7 +26,7 @@ using System.Linq;
 
 namespace Icod.Orm.DbMap {
 
-	/// <include file='.\Doc\XmlDoc.xml' path='/types/type[@name="Icod.Orm.DbMap.DbColumnCollection"]/member[@name=""]/*'/>
+	/// <include file='.\Doc\DbResults\XmlDoc.xml' path='/types/type[@name="Icod.Orm.DbMap.DbColumnCollection"]/member[@name=""]/*'/>
 	[System.Serializable]
 	public class DbColumnCollection : NamedConfigurationElementCollectionBase<DbColumnElement> {
 

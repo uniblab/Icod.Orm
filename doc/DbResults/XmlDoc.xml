@@ -446,4 +446,11 @@
 			</returns>
 		</menber>
 	</type>
+	<type name="Icod.Orm.DbMap.DbResultCollection">
+		<member name="">
+			<summary>
+				A collection of <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see> instances.
+			</summary>
+		</member>
+	</type>
 </types>
