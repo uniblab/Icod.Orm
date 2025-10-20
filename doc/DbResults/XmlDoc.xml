@@ -22,18 +22,18 @@
 	<type name="Icod.Orm.DbMap.DbColumnElement">
 		<member name="">
 			<summary>
-                The DbColumnElement describes a column in a database resultset.
-                This structure retrieves the value from the resultset and, if necessary, converts it to another type.
+                The <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see> describes a column in a database resultset.
+                This object retrieves the value from the resultset and, if necessary, converts it to another type.
             </summary>
         </member>
 		<member name=".#ctor">
 			<summary>
-				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbColumnElement"/> class.
+				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see> class.
 			</summary>
 		</member>
 		<member name=".#ctor(System.String)">
 			<summary>
-				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbColumnElement"/> class.
+				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbColumnElement">DbColumnElement</see> class.
 			</summary>
 			<param name="name">
                 Sets the <see cref="P:Icod.Orm.DbMap.DbColumnElement.Name">Name</see> property at time of instantiation.

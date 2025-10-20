@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+    Icod.Orm is the lght-weight and super-efficient ORM by Icod.
+    Copyright (C) 2025  Timothy J. Bruce
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 3 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+    USA
+-->
+<types>
+	<type name="Icod.Orm.DbMap.DbParameterElement">
+		<member name="">
+			<summary>
+				The <see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> describes a parameter to a database query.
+			This object retrieves a value from a <see cref="T:System.Object"/> instance and populates a database query parameter.
+			</summary>
+        </member>
+		<member name=".#ctor">
+			<summary>
+				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> class.
+		</summary>
+		</member>
+		<member name=".#ctor(System.String)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> class.
+			</summary>
+			<param name="name">
+				Sets the <see cref="P:Icod.Orm.DbMap.DbParameterElement.Name">Name</see> property at time of instantiation.
+			</param>
+			<remarks>
+				The <see cref="P:Icod.Orm.DbMap.DbParameterElement.Name">Name</see> property should be unique in most contexts.
+			</remarks>
+		</member>
+		<member name="DbType">
+			<summary>
+				Gets or sets <see cref="T:System.Data.DbType">DbType</see> of the parameter to be supplied.
+			</summary>
+			<value>
+				This is the <see cref="T:System.Data.DbType">DbType</see> of the value provided to the database when the query is executed.
+				The default value is <see cref="F:System.Data.DbType.AnsiString">AnsiString</see>.
+			</value>
+		</member>
+		<member name="Direction">
+			<summary>
+				Gets or sets the direction of the database parameter.
+			</summary>
+			<value>
+				The <see cref="T:System.Data.ParameterDirection">direction</see> of the database parameter.
+			</value>
+			<remarks>
+				All values of the <see cref="T:System.Data.ParameterDirection">ParameterDirection</see> enumeration are supported,
+				including <see cref="F:System.Data.ParameterDirection.ReturnValue">ReturnValue</see>.
+				The default value is <see cref="F:System.Data.ParameterDirection.Input">Input</see>
+			</remarks>
+		</member>
+		<member name="ParameterName">
+			<summary>
+				Gets or sets the name of the database parameter.
+			</summary>
+			<value>
+				The <see cref="T:System.String"/> specifying the name of the parameter.
+			</value>
+		</member>
+		<member name="Size">
+			<summary>
+				Gets or sets the size of the parameter, for those scenarios which require it.
+			</summary>
+			<value>
+				A <see cref="T:System.Int32"/> indicating the size of the parameter.
+			</value>
+			<remarks>
+				The default value is 0, and not all database parameter types or use-cases require specifying the size of the database parameter.
+				<see cref="F:System.Data.DbType.String">String</see> and <see cref="F:System.Data.DbType.Decimal">Decimal</see>
+				are the main culprits.
+			</remarks>
+		</member>
+		<member name="Scale">
+			<summary>
+				Gets or sets the scale of the database parameter.
+			</summary>
+			<value>
+				A <see cref="T:System.Byte"/> specifying the scale of the database parameter.
+			</value>
+			<remarks>
+				It is often required to specify scale for <see cref="F:System.Data.DbType.Decimal">Decimal</see> 
+				and similar types.
+			</remarks>
+		</member>
+		<member name="Precision">
+			<summary>
+				Gets or sets the precision of the database parameter.
+			</summary>
+			<value>
+				A <see cref="T:System.Byte"/> specifying the precision of the database parameter.
+			</value>
+			<remarks>
+				It is often required to specify precision for <see cref="F:System.Data.DbType.Decimal">Decimal</see>
+				and similar types.
+			</remarks>
+		</member>
+		<member name="SourceColumn">
+			<summary>
+				Gets or sets the name of the source column mapped to the <see cref="T:System.Data.DataSet">DataSet</see> 
+				and used for loading or returning the <see cref="P:System.Data.Common.DbParameter.Value">Value</see>.
+			</summary>
+			<value>
+				The name of the source column mapped to the <see cref="T:System.Data.DataSet">DataSet</see>.
+				The default is an empty string.
+			</value>
+		</member>
+		<member name="SourceColumnNullMapping">
+			<summary>
+				Gets or sets a value that indicates whether the source column is nullable. 
+				This allows <see cref="T:System.Data.Common.DbCommandBuilder">DbCommandBuilder</see> to correctly 
+				generate Update statements for nullable columns.
+			</summary>
+			<value>
+				<see langword="true"/> if the source column is nullable; <see langword="false"/> if it is not.
+			</value>
+		</member>
+		<member name="PropertyName">
+			<summary>
+				Gets or sets the name of the <see cref="T:System.Reflection.PropertyInfo">property</see> of the object 
+				instance to which this should be associated.
+			</summary>
+			<value>
+				The name of the property as a <see cref="T:System.String">String</see>.
+			</value>
+		</member>
+		<member name="Prepare">
+			<summary>
+				Gets or sets a <see cref="T:Icod.Orm.DbMap.PrepareElement">PrepareElement</see> value to prepare the 
+			</summary>
+			<value>
+				A <see cref="T:Icod.Orm.DbMap.PrepareElement">PrepareElement</see> defining an arbitrary callback to be
+				called before the database query is executed.
+			</value>
+			<remarks>
+				This callback will receive a refernce to a <see cref="T:Icod.Orm.DbMap.DbPrepareParameterEventArgs">DbPrepareParameterEventArgs</see> 
+				instance.
+			</remarks>
+			<seealso cref="T:Icod.Orm.DbMap.DbPrepareParameterEventArgs"/>
+		</member>
+		<member name="ToDbParameter(System.Data.Common.DbCommand)">
+			<summary>
+				Converts the instance to a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the 
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<returns>
+				Returns a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</returns>
+		</member>
+		<member name="ToDbParameter(System.Data.Common.DbCommand,Icod.Orm.DbMap.DbParameterElement)">
+			<summary>
+				Converts the instance to a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="element">
+				The <see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> from which to initialize
+				the resulting <see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<returns>
+				Returns a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</returns>
+		</member>
+		<member name="ToDbParameter(System.Data.Common.DbCommand,System.Action`1)">
+			<summary>
+				Converts the instance to a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="prepare">
+				A <see cref="T:System.Action`1"/> which accepts a <see cref="T:System.Data.Common.DbParameter">DbParameter</see>
+				instance as its only parameter.
+			</param>
+			<returns>
+				Returns a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</returns>
+			<remarks>
+				This method will invoke the callback defined by <see cref="P:Icod.Orm.DbMap.DbParameterElement.Prepare">Prepare</see>
+				first, then the callback specified by <paramref name="prepare"/>.
+			</remarks>
+		</member>
+		<member name="ToDbParameter(System.Data.Common.DbCommand,Icod.Orm.DbMap.DbParameterElement,System.Action`1)">
+			<summary>
+				Converts the instance to a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="element">
+				The <see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> from which to initialize
+				the resulting <see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="prepare">
+				A <see cref="T:System.Action`1"/> which accepts a <see cref="T:System.Data.Common.DbParameter">DbParameter</see>
+				instance as its only parameter.
+			</param>
+			<returns>
+				Returns a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</returns>
+			<remarks>
+				This method will invoke the callback defined by <see cref="P:Icod.Orm.DbMap.DbParameterElement.Prepare">Prepare</see>
+				first, then the callback specified by <paramref name="prepare"/>.
+			</remarks>
+		</member>
+		<member name="ToDbParameter(System.Data.Common.DbCommand,System.Object)">
+			<summary>
+				Converts the instance to a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="value">
+				The value to assign to the <see cref="P:System.Data.Common.DbParameter.Value" />.
+			</param>
+			<returns>
+				Returns a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</returns>
+		</member>
+		<member name="ToDbParameter(System.Data.Common.DbCommand,Icod.Orm.DbMap.DbParameterElement,System.Object)">
+			<summary>
+				Converts the instance to a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="element">
+				The <see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> from which to initialize
+				the resulting <see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="value">
+				The value to assign to the <see cref="P:System.Data.Common.DbParameter.Value" />.
+			</param>
+			<returns>
+				Returns a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</returns>
+		</member>
+		<member name="ToDbParameter(System.Data.Common.DbCommand,System.Reflection.PropertyInfo,System.Object)">
+			<summary>
+				Converts the instance to a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="property">
+				The <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> describing the property value to retrieve
+				from <paramref name="object"/>.
+			</param>
+			<param name="object">
+				The instance which contains the value for the resultant <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</param>
+			<returns>
+				Returns a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</returns>
+		</member>
+		<member name="ToDbParameter(System.Data.Common.DbCommand,Icod.Orm.DbMap.DbParameterElement,System.Reflection.PropertyInfo,System.Object)">
+			<summary>
+				Converts the instance to a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="element">
+				The <see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> from which to initialize
+				the resulting <see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="property">
+				The <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> describing the property value to retrieve
+				from <paramref name="object"/>.
+			</param>
+			<param name="object">
+				The instance which contains the value for the resultant <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</param>
+			<returns>
+				Returns a <see cref="T:System.Data.Common.DbParameter">DbParameter</see> instance.
+			</returns>
+		</member>
+		<member name="GetInputProperty(System.Type)">
+			<summary>
+				Retrieves the input <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> defined by 
+				this instance from the provided <paramref name="type"/>.
+			</summary>
+			<param name="type">
+				The <see cref="T:System.Type">Type</see> from which to retrieve the associated 
+				<see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> defined by this instance.
+			</param>
+			<returns>
+				The <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> defined by the instance associated with the
+				provided <paramref name="type"/>.
+			</returns>
+		</member>
+		<member name="GetOutputProperty(System.Type)">
+			<summary>
+				Retrieves the output <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> defined by
+				this instance from the provided <paramref name="type"/>.
+			</summary>
+			<param name="type">
+				The <see cref="T:System.Type">Type</see> from which to retrieve the associated
+				<see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> defined by this instance.
+			</param>
+			<returns>
+				The <see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> defined by the instance associated with the
+				provided <paramref name="type"/>.
+			</returns>
+		</member>
+	</type>
+</types>
