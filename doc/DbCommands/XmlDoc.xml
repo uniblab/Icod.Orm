@@ -329,4 +329,109 @@
 			</returns>
 		</member>
 	</type>
+	<type name="Icod.Orm.DbMap.DbParameterCollection">
+		<member name="">
+			<summary>
+				A collection of <see cref="T:Icod.Orm.DbMap.DbParameterCollection">DbParameterCollection</see> instances.
+			</summary>
+		</member>
+		<member name="ToDbParameters(System.Data.Common.DbCommand)">
+			<summary>
+				Creates and initializes an <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type
+			<see cref="T:System.Data.Common.DbParameter">DbParameter</see> based on the collection instance.
+		</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> with which to create the resultant
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see> instances.
+			</param>
+			<returns>
+				A <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type 
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see> based on the collection instance.
+			</returns>
+		</member>
+		<member name="ToDbParameters(System.Data.Common.DbCommand,System.Action`1)">
+			<summary>
+				Converts the collection instance to an 
+				<see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type 
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see> instances.
+			</param>
+			<param name="prepare">
+				A <see cref="T:System.Action`1"/> which is executed against every 
+				<see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> instance in the collection.
+			</param>
+			<returns>
+				A <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see> based on the collection instance.
+			</returns>
+			<remarks>
+				This method will invoke the callback defined by 
+				<see cref="P:Icod.Orm.DbMap.DbParameterElement.Prepare">Prepare</see> first, then the callback 
+				specified by <see cref="P:Icod.Orm.DbMap.DbParameterElement.Prepare">Prepare</see> of each
+				<see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> element.
+			</remarks>
+			<seealso cref="T:Icod.Orm.DbMap.DbParameterElement"/>
+		</member>
+		<member name="ToDbParameters(System.Data.Common.DbCommand,System.Object)">
+			<summary>
+				Converts the collection instance to an
+				<see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</summary>
+			<param name="command">
+				The <see cref="T:System.Data.Common.DbCommand">DbCommand</see> instance with which to create the
+				<see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see>.
+			</param>
+			<param name="object">
+				The object to interrogate for values.
+			</param>
+			<returns>
+				A <see cref="T:System.Collections.Generic.IEnumerable`1">IEnumerable</see> of type
+				<see cref="T:System.Data.Common.DbParameter">DbParameter</see> based on the collection instance.
+			</returns>
+		</member>
+		<member name="GetInputProperties(System.Type)">
+			<summary>
+				Interrogates the specified <paramref name="type"/> for the properties to map for 
+				database input parameters.
+			</summary>
+			<param name="type">
+				The <see cref="T:System.Type">Type</see> whose properties are to be interrogated.
+			</param>
+			<returns>
+				A <see cref="T:System.Collections.Generic.IDictionary`2">IDictionary</see> mapping 
+				<see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> keys to 
+				<see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> values.
+			</returns>
+			<remarks>
+				This will only map property values which are specified as 
+				<see cref="F:System.Data.ParameterDirection.Input">Input</see> or
+				<see cref="F:System.Data.ParameterDirection.InputOutput">InputOutput</see>.
+			</remarks>
+		</member>
+		<member name="GetOutputProperties(System.Type)">
+			<summary>
+				Interrogates the specified <paramref name="type"/> for the properties to map for
+				database output parameters.
+			</summary>
+			<param name="type">
+				The <see cref="T:System.Type">Type</see> whose properties are to be interrogated.
+			</param>
+			<returns>
+				A <see cref="T:System.Collections.Generic.IDictionary`2">IDictionary</see> mapping
+				<see cref="T:Icod.Orm.DbMap.DbParameterElement">DbParameterElement</see> keys to
+				<see cref="T:System.Reflection.PropertyInfo">PropertyInfo</see> values.
+			</returns>
+			<remarks>
+				This will only map property values which are specified as
+				<see cref="F:System.Data.ParameterDirection.Output">Output</see> or
+				<see cref="F:System.Data.ParameterDirection.InputOutput">InputOutput</see> or
+				<see cref="F:System.Data.ParameterDirection.ReturnValue">ReturnValue</see>.
+			</remarks>
+		</member>
+	</type>
 </types>
