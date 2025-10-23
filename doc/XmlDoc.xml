@@ -148,4 +148,43 @@
 			</param>
 		</member>
 	</type>
+	<type name="Icod.Orm.PrepareElement">
+		<member name="">
+			<summary>
+				Defines an arbitrary callback to execute when preparing database parameters.
+			</summary>
+		</member>
+		<member name=".#ctor">
+			<summary>
+				Instantiates a new instance.
+			</summary>
+		</member>
+		<member name=".#ctor(System.String)">
+			<summary>
+				Instantiates a new instance with the specified <paramref name="name"/>.
+			</summary>
+			<param name="name">
+				Specifies the <see cref="P:Icod.Orm.PrepareElement.Name">Name</see> property.
+			</param>
+		</member>
+		<member name="Name">
+			<summary>
+				The name of the method to invoke.
+			</summary>
+			<value>
+				The <see cref="T:System.String">String</see> name of the method to invoke when preparing the database parameter.
+			</value>
+		</member>
+		<member name="Type">
+			<summary>
+				The name of the type possessing the method to invoke.
+			</summary>
+			<value>
+				The <see cref="T:System.String">String</see> name of the type possessing the method to invoke.
+			</value>
+			<remarks>
+				This should be a fully-qualified assembly name for best results.
+			</remarks>
+		</member>
+	</type>
 </types>
